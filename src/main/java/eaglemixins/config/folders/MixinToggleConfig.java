@@ -522,6 +522,17 @@ public class MixinToggleConfig {
     @MixinConfig.MixinToggle(lateMixin = "mixins.eaglemixins.otg.biomesearch.json", defaultValue = true)
     public boolean otgBiomeSearch = true;
 
+    @Config.Comment({
+            "Stops OTG from overwriting gamerules (keepInventory, spawnRadius, ...) with the values from its WorldConfig.ini / Dimensions config on every world load.",
+            "Makes OTG dimensions also share the overworld's gamerules like vanilla dimensions do, so /gamerule works everywhere and persists across restarts.",
+            "The gamerule values in OTG's configs and dimension GUI are ignored while this is enabled."
+    })
+    @Config.Name("Vanilla Gamerules (OTG)")
+    @Config.RequiresMcRestart
+    @MixinConfig.CompatHandling(modid = "openterraingenerator", desired = true, reason = "Requires mod to properly function")
+    @MixinConfig.MixinToggle(lateMixin = "mixins.eaglemixins.otg.vanillagamerules.json", defaultValue = true)
+    public boolean otgVanillaGameRules = true;
+
     @Config.Comment("Stops blocks affected by gravity from updating when they are generated during worldgen")
     @Config.Name("Blocks do not fall during world gen (Vanilla)")
     @Config.RequiresMcRestart
