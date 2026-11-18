@@ -256,7 +256,7 @@ public class MixinToggleConfig {
     @MixinConfig.CompatHandling(modid = "nuclearcraft", desired = true, reason = "Requires mod to properly function")
     public boolean fixShieldingRecipe = true;
 
-    @Config.Comment("Allows to define radiation values for containers with loot tables that havent generated loot yet. Also fixes NuclearCraft automatically generating the loot in such chests.")
+    @Config.Comment("Allows to define radiation values for containers with loot tables that havent generated loot yet.")
     @Config.Name("Loot Table Radiation (NuclearCraft)")
     @Config.RequiresMcRestart
     @MixinConfig.MixinToggle(lateMixin = "mixins.eaglemixins.nuclearcraft.loottableradiation.json", defaultValue = true)
